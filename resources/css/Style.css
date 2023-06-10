@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+.nav-buttons{
+    margin-left: 60%;
+}
+
+.navbarCustom{
+    background-color: blanchedalmond;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+    background-color: blanchedalmond;
+    
+}
+
+h1{
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h5{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+h6{
+    color:#A4262C
+}
+
+button{
+    background-color: #a4262c;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 0px 0px;
+    opacity: 1;
+}
+/* Navigation Bar Style */
+.navbar{
+    font-size: 16px;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    top: 0;
+    left: 0;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px;
+    color: black;
+    transition: 0.4 ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active
+.navbar i:hover{
+    color: #A4262C;
+}
+
+#landing{
+    background-image: url('../images/landing_bg.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-y: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.loginButton
+{
+    background-color: #a4262c;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 2px 2px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 50px;
+
+    position: relative;
+    left: 200px;
+}
+
+.landingTextLocation
+{
+    position: relative;
+    top: 140px;
+    left: 190px;
+}
+
+#category .categoryImg img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#category .categoryImg{
+    position: relative;
+}
+
+#category .categoryImg .details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.4s ease;
+    opacity: 0.8;
+    background-color: rgb(1,1,1);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#category .categoryImg .details:hover{
+    background-color: #081f57;
+}
+
+/* Product Style */
+
+.product{
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.product .img{
+    transition: 0.3s all;
+}
+
+.product:hover img{
+    opacity: 0.6;
+}
+
+/* Item Description / Page */
+.item-description input[type=number]
+{
+    border-radius: 10px;
+    border: none;
+    width: 70px;
+    height: 50px;
+    padding: 0 12px;
+}
+
+.item-description input:focus{
+    outline: none;
+}
+
+/* Cart Style */
+.cart table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart .item-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart th {
+    text-align: left;
+    padding: 5px 10px;
+    color:white;
+    background-color: #a4262c;
+}
+
+.cart td{
+    padding: 10px 20px;   
+}
+
+.cart td img{
+    width: 90px;
+    height: 90px;
+}
+
+.cart input[type=number]
+{
+    border-radius: 10px;
+    border: none;
+    width: 70px;
+    height: 50px;
+    padding: 0 12px;
+}
+
+.cart a{
+    color:#A4262C;
+}
+
+.cart-total{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-total table{
+    width: 100%;
+    max-width: 500px;
+    border-top: 3px solid #A4262C;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+.orderContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contactInfo{
+    margin-left: 1450px;
+    margin-top: 260px;
+    color:white;
+}
+
+.contactEmail{
+    margin-left: 1330px;
+    margin-top: 90px;
+    color: white;
+}
+
+.contactInfo h3{
+    margin-top: 6rem;
+    font-weight: 500%;
+}
+
+.contactInfo h4{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+/* LOGIN STYLE */
+.loginSection input[type=email] {
+    border-radius: 10px;
+    border: none;
+    width: 340px;
+    height: 50px;
+    padding: 0 12px;
+    
+}
+
+.loginSection input[type=password] {
+    border-radius: 10px;
+    border: none;
+    width: 380px;
+    height: 50px;
+    padding: 0 12px;
+}
+
+.loginSection button{
+    background-color: #a4262c;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 0px 0px;
+    opacity: 1;
+    width: 150px;
+}
+
+.loginSection h1{
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.loginSection a {
+    color:white;
+    text-decoration: none;
+}
+
+#loginBG {
+    background-image: url('../images/login_bg.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+/* REGISTER */
+.registerSection
+{
+    background-image: url('../images/register_bg.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+.registerSection div
+{
+    font-size: 30px;
+}
+
+.registerContainer
+{
+    align-items: center;
+    margin-top: 225px;
+    width: 35%;
+    float: right;
+}
+
+.registerButton
+{
+    width: 83.5%;
+    float:right;
+}
+
+.registerSection p
+{
+    margin-top: 30px;
+    margin-bottom: -5px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.registerSection input[type=text],[type=email],[type=password]
+{
+    border-radius: 20px;
+    border: none;
+    width: 400px;
+    height: 30px;
+    font-size: 24px;
+    padding: 0 10px;
+}
+
+.LoginButtonReg {
+    background-color: #a4262c;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    width:35%;
+}
+
+.my-account input[type=text],[type=email],[type=password]
+{
+    border-radius: 20px;
+    border: none;
+    width: 400px;
+    height: 30px;
+    font-size: 24px;
+    padding: 0 20px;
+    margin-top: none;
+    text-align: center;
+}
+
+.accountContainer
+{
+    align-items: center;
+    margin: 0px;
+}
+
+.saveButton
+{
+    width:50%;
+}
+
+.accountContainer p{
+    margin: 0px;
+    margin-top: 15px;
+}

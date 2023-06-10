@@ -1,0 +1,133 @@
+CREATE DATABASE IF NOT EXISTS silExp;
+USE silExp;
+
+CREATE TABLE IF NOT EXISTS `cart` (
+    `cart_id` int(11) NOT NULL,
+    `item_id` int(11) NOT NULL,
+    `quantity` int(3) NOT NULL,
+    `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      
+CREATE TABLE IF NOT EXISTS `cart_orders` (
+    `cart_orders` int(11) NOT NULL,
+    `item_id` int(11) DEFAULT NULL,
+    `user_id` int(11) DEFAULT NULL,
+    `quantity` int(3) DEFAULT NULL,
+    `total_price` decimal(7,2) DEFAULT NULL,
+    `date` date DEFAULT curdate(),
+    `order_status` varchar(100) DEFAULT 'Processing',
+    `order_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      
+CREATE TABLE IF NOT EXISTS `categories` (
+    `category_id` int(11) NOT NULL,
+    `category_name` varchar(255) NOT NULL,
+    `category_description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      
+INSERT INTO `categories` (`category_id`, `category_name`, `category_description`) VALUES
+(1, 'Main Dish', NULL),
+(2, 'Side Dish', 'NULL'),
+(3, 'Beverage', 'NULL');
+      
+CREATE TABLE IF NOT EXISTS `items` (
+        `item_id` int(11) NOT NULL,
+        `item_name` varchar(100) NOT NULL,
+        `item_description` varchar(255) NOT NULL,
+        `item_image` varchar(255) NOT NULL,
+        `item_price` decimal(6,2) NOT NULL,
+        `category_id` int(11) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      
+      INSERT INTO `items` (`item_id`, `item_name`, `item_description`, `item_image`, `item_price`, `category_id`) VALUES
+      (1, 'Tapsilog', 'The most-famous silog of all time, the tapsilog! Pinasarap at pinajuicy pa!', 'resources/images/featured1.png', 3.00, 1),
+      (2, 'HotSilog', 'Hotdog, Sinangag, at Itlog!', 'resources/images/featured2.png', 2.00, 1),
+      (3, 'BacSilog', 'Bacon, Sinangag, at Itlog!', 'resources/images/featured3.png', 2.40, 1),
+      (4, 'Tocilog', 'Tocino, Sinangag, at Itlog!', 'resources/images/featured4.png', 1.70, 1),
+      (5, 'Chicken Silog', 'Fried Chicken, Sinangag, at Itlog!', 'resources/images/Chicken_Silog.png', 4.00, 1),
+      (6, 'BaSilog', 'Bangus, Sinangag, at Itlog!', 'resources/images/bangus_silog.png', 1.00, 1),
+      (7, 'Corn Silog', 'Corned Beef, Sinangag, at Itlog!', 'resources/images/Corn_Silog.png', 1.30, 1),
+      (8, 'Hotsilog with Tomatoes', 'Hotdog, Sinangag, Itlog, at Tomatoes!', 'resources/images/hotsilog_with_tomatoes.png', 6.00, 1),
+      (9, 'Budget Tapsilog', 'Affordable na ang paboritong Tapsilog!', 'resources/images/tapsilog_budget.png', 3.00, 1),
+      (10, 'Achara', '', 'resources/images/achara.png', 0.50, 2),
+      (11, 'Itlog Maalat', '', 'resources/images/itlog_maalat.png', 0.70, 2),
+      (12, 'Garlic Rice', '', 'resources/images/garlic_rice.png', 1.00, 2),
+      (13, 'Salad', '', 'resources/images/salad.png', 0.90, 2),
+      (16, 'Tomatoes', '', 'resources/images/tomatoes.png', 0.30, 2),
+      (17, 'Toyo Rice', '', 'resources/images/toyo_rice.png', 1.00, 2),
+      (18, 'White Rice', '', 'resources/images/white_rice.png', 0.90, 2),
+      (19, 'Dilis', '', 'resources/images/dilis.png', 0.40, 2),
+      (20, 'Puto', '', 'resources/images/puto.png', 0.40, 2),
+      (21, 'Coke 1.5L', '', 'resources/images/coke_large.png', 2.00, 3),
+      (22, 'Iced Tea', '', 'resources/images/iced_tea.png', 1.10, 3),
+      (23, 'Orange Juice', '', 'resources/images/orange_juice.png', 1.10, 3);
+      
+      CREATE TABLE IF NOT EXISTS `order_track` (
+        `order_id` int(11) NOT NULL,
+        `user_id` int(11) DEFAULT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      
+      CREATE TABLE IF NOT EXISTS `users` (
+        `user_id` int(11) NOT NULL,
+        `user_password` varchar(255) NOT NULL,
+        `user_fname` varchar(255) NOT NULL,
+        `user_lname` varchar(255) NOT NULL,
+        `user_email` varchar(255) NOT NULL,
+        `contact_number` varchar(11) DEFAULT NULL,
+        `address` varchar(500) DEFAULT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+      
+      ALTER TABLE `cart`
+        ADD PRIMARY KEY (`cart_id`),
+        ADD KEY `item_id` (`item_id`),
+        ADD KEY `user_id` (`user_id`);
+      
+      ALTER TABLE `cart_orders`
+        ADD PRIMARY KEY (`cart_orders`),
+        ADD KEY `user_id` (`user_id`),
+        ADD KEY `cart_item_id` (`item_id`),
+        ADD KEY `order_id` (`order_id`);
+      
+      ALTER TABLE `categories`
+        ADD PRIMARY KEY (`category_id`);
+      
+      ALTER TABLE `items`
+        ADD PRIMARY KEY (`item_id`),
+        ADD KEY `category_id` (`category_id`);
+      
+      ALTER TABLE `order_track`
+        ADD PRIMARY KEY (`order_id`);
+      
+      ALTER TABLE `users`
+        ADD PRIMARY KEY (`user_id`);
+      
+      ALTER TABLE `cart`
+        MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+      
+      ALTER TABLE `cart_orders`
+        MODIFY `cart_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+      
+      ALTER TABLE `categories`
+        MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+      
+      ALTER TABLE `items`
+        MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+      
+      ALTER TABLE `order_track`
+        MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+      
+      ALTER TABLE `users`
+        MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+      
+      ALTER TABLE `cart`
+        ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `items` (`item_id`),
+        ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+      
+      ALTER TABLE `cart_orders`
+        ADD CONSTRAINT `cart_orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+        ADD CONSTRAINT `cart_orders_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `items` (`item_id`),
+        ADD CONSTRAINT `cart_orders_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `order_track` (`order_id`);
+      
+      ALTER TABLE `items`
+        ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`);
+      COMMIT;
